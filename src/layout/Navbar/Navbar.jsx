@@ -2,9 +2,21 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { SlUser } from "react-icons/sl";
+import { GrFavorite } from "react-icons/gr";
+import { FiSearch } from "react-icons/fi";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Search from "./Search";
 import { NavLink } from "react-router-dom";
-
+import { Avatar, Typography } from "@material-tailwind/react";
+import { RxCross1 } from "react-icons/rx";
+import { HiOutlineArrowRight } from "react-icons/hi2";
+import image1 from "../../assets/cat1.webp";
+import image2 from "../../assets/cat2.webp";
+import image3 from "../../assets/cat3.webp";
+import image4 from "../../assets/cat4.webp";
+import image5 from "../../assets/cat5.webp";
 export default function Navbar() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(true);
@@ -60,14 +72,14 @@ export default function Navbar() {
           </div>
           <div className="py-5 md:ml-auto md:mr-10 ">
             <ul className="md:flex md:gap-10 ">
-              <NavLink to={'/login'}>
-              <li>
-                <h1 className="font-roboto font-semibold underline cursor-pointer  text-xs">
-                  LOGIN
-                </h1>
-              </li>
+              <NavLink to={"/login"}>
+                <li>
+                  <h1 className="font-roboto font-semibold underline cursor-pointer  text-xs">
+                    LOGIN
+                  </h1>
+                </li>
               </NavLink>
-             
+
               <li>
                 <h1 className=" cursor-pointer text-xl">
                   <MdFavoriteBorder />
@@ -83,58 +95,124 @@ export default function Navbar() {
         </div>
       ) : (
         <>
-          <div className="bg-custom w-full h-16 flex justify-between ">
+          <div className="bg-custom w-full h-16 flex justify-evenly ">
             <h1
               onClick={() => setHide(!hide)}
-              className="font-roboto text-xs py-6 ml-6"
+              className="font-roboto cursor-pointer text-gray-700 text-2xl py-4 pl-3"
             >
-              {hide ? "MENU" :"CLOSE"}
+              <FiMenu />
             </h1>
+            <NavLink to={'/'}>
             <img
-              className="w-24 mt-2 h-10 cursor-pointer mr-5 "
+              className="w-16 mt-3 h-8 cursor-pointer ml-3 "
               src={logo}
               alt="LogoPNG"
             />
-            <div className="flex mr-4">
-              <h1 className="cursor-pointer text-2xl mt-3">
-                <FaShoppingBag />
+            </NavLink>
+            
+            <div className="flex gap-5 pl-16">
+              <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
+                <SlUser />
               </h1>
-              <h1 className="font-roboto font-bold py-1 ">1</h1>
+              <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
+                <FiSearch />
+              </h1>
+              <div className="flex  ">
+                <h1 className="cursor-pointer py-1 text-gray-700  text-2xl  mt-3">
+                  <GrFavorite />
+                </h1>
+                <h1 className="font-roboto py-1 text-gray-700  font-bold ">
+                  1
+                </h1>
+              </div>
+              <div className="flex mr-4 py-">
+                <h1 className="cursor-pointer py-1 text-gray-700 text-2xl mt-3">
+                  <HiOutlineShoppingBag />
+                </h1>
+                <h1 className="font-roboto py-1 text-gray-700 font-bold ">1</h1>
+              </div>
             </div>
           </div>
           {!hide && (
-         <div className={`bg-cyan-50 h-12 w-[360px] mt-2 absolute z-10  ${hide ? 'translate-x-0' : 'translate-x-4'}`}>
-              <div className="py-4 ml-2  ">
-                <ul className="flex gap-7  ">
-                  <li>
-                    <h1 className="font-roboto  font-semibold cursor-pointer text-xs">
-                      NEW IN
+            <div className="bg-custom h-full w-[330px] -mt-16  absolute z-10 ">
+              <h1 onClick={() => setHide(!hide)} className="text-2xl ml-6 mt-4">
+                <RxCross1 />
+              </h1>
+              <div className=" mt-8 ml-5 ">
+                <div className="flex flex-col gap-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image1} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        OVERSIZED T SHIRT
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-20 cursor-pointer">
+                      <HiOutlineArrowRight />
                     </h1>
-                  </li>
-                  <li>
-                    <h1 className="font-roboto font-semibold cursor-pointer text-xs">
-                      APPAREL
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image5} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        OVERSIZED T SHIRT
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-20 cursor-pointer">
+                      <HiOutlineArrowRight />
                     </h1>
-                  </li>
-                  <li>
-                    <h1 className="cursor-pointer font-roboto font-bold text-xs">
-                      FAVORITE
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image2} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        OVERSIZED T SHIRT
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-20 cursor-pointer">
+                      <HiOutlineArrowRight />
                     </h1>
-                  </li>
-                  <NavLink to={'/login'}>
-                  <li>
-                    <h1 className="font-roboto font-semibold underline cursor-pointer  text-xs">
-                      LOGIN
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image3} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        OVERSIZED T SHIRT
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-20 cursor-pointer">
+                      <HiOutlineArrowRight />
                     </h1>
-                  </li>
-                  </NavLink>
-                 
-                  <li>
-                    <h1 className="font-roboto font-semibold cursor-pointer text-xs">
-                      SEARCH
+                  </div>
+                </div>
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image4} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        OVERSIZED T SHIRT
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-20 cursor-pointer">
+                      <HiOutlineArrowRight />
                     </h1>
-                  </li>
-                </ul>
+                  </div>
+                </div>
+                <div className="mt-10">
+                  <ul>
+                    <NavLink to={'/login'}>
+                    <li className="font-roboto text-xs">LOGIN</li>
+                    </NavLink>
+                   
+                    <li className="font-roboto text-xs mt-6">CUSTOMER SERVICE</li>
+                  </ul>
+                </div>
               </div>
             </div>
           )}

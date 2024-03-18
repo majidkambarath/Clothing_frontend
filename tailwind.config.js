@@ -10,7 +10,7 @@ module.exports = withMT({
         purse : ["Purple Purse", "serif"]
       },
       colors: {
-        custom: "#EFEFEF",
+        custom: "#FAF9F8",
       },
     },
   },

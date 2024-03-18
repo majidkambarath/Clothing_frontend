@@ -1,13 +1,19 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa6";
+import Brandlogo from '../../assets/favicon.png'
+import { NavLink } from "react-router-dom";
 export default function Footer() {
   return (
     <>
       <div className="w-full h-80 bg-custom border-black/35 border-t-2 flex ">
         <div className="md:mt-20 md:w-1/2 md:pl-20 mt-5 pl-32 ">
-          <h1 className="font-Rampart text-4xl  cursor-pointer">BLNZED</h1>
-          <div className="md:flex gap-5 hidden md:block ">
+          <NavLink to={'/'}>
+          <img className="w-1/4 ml-8" src={Brandlogo} alt="FooterImage" />
+          </NavLink>
+          
+          {/* <h1 className="font-Rampart text-4xl  cursor-pointer">BLNZED</h1> */}
+          <div className="md:flex gap-5 hidden ml-10 md:block ">
             <h1 className="text-2xl md:mt-8 cursor-pointer  transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300">
               <FaInstagram />
             </h1>
@@ -15,7 +21,7 @@ export default function Footer() {
               <FaWhatsapp />
             </h1>
           </div>
-          <h1 className="font-roboto text-xs font-semibold md:mt-20 md:pt-0 md:-ml-0 -ml-12 pt-56 text-gray-600">
+          <h1 className="font-roboto text-xs font-semibold md:mt-10 md:pt-0 md:-ml-0 -ml-12 pt-52 text-gray-600">
             © 2024 BLNZED, ALL RIGHTS RESERVED
           </h1>
         </div>
