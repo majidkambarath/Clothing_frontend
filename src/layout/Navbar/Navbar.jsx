@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import Search from "./Search";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [active, setActive] = useState(true);
@@ -59,11 +60,14 @@ export default function Navbar() {
           </div>
           <div className="py-5 md:ml-auto md:mr-10 ">
             <ul className="md:flex md:gap-10 ">
+              <NavLink to={'/login'}>
               <li>
                 <h1 className="font-roboto font-semibold underline cursor-pointer  text-xs">
                   LOGIN
                 </h1>
               </li>
+              </NavLink>
+             
               <li>
                 <h1 className=" cursor-pointer text-xl">
                   <MdFavoriteBorder />
@@ -82,7 +86,7 @@ export default function Navbar() {
           <div className="bg-custom w-full h-16 flex justify-between ">
             <h1
               onClick={() => setHide(!hide)}
-              className="font-roboto  font-semibold py-4 ml-5"
+              className="font-roboto text-xs py-6 ml-6"
             >
               {hide ? "MENU" :"CLOSE"}
             </h1>
@@ -117,11 +121,14 @@ export default function Navbar() {
                       FAVORITE
                     </h1>
                   </li>
+                  <NavLink to={'/login'}>
                   <li>
                     <h1 className="font-roboto font-semibold underline cursor-pointer  text-xs">
                       LOGIN
                     </h1>
                   </li>
+                  </NavLink>
+                 
                   <li>
                     <h1 className="font-roboto font-semibold cursor-pointer text-xs">
                       SEARCH
