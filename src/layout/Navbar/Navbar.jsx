@@ -58,7 +58,7 @@ export default function Navbar() {
                 NEWS LETTER
               </li>
               <li className="font-roboto text-[11px] cursor-pointer">
-                NEWS OFFERS
+              NEW OFFERS
               </li>
             </ul>
           </div>
@@ -96,7 +96,7 @@ export default function Navbar() {
         </div>
       ) : (
         <>
-          <div className="bg-custom w-full h-16 flex justify-evenly ">
+          <div className="bg-custom z-20 fixed w-full h-16 flex justify-evenly ">
             <h1
               onClick={() => setHide(!hide)}
               className="font-roboto cursor-pointer text-gray-700 text-2xl py-4 pl-3"

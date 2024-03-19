@@ -62,16 +62,18 @@ export default function CardList() {
   ];
   return (
     <>
-      <div className="w-full  md:h-[500px] h-[600px] bg-custom flex md:flex-row flex-col">
-        <div className="md:w-1/4" >
-          <h1 className="text-2xl font-roboto font-semibold text-gray-500 mt-5 flex justify-center md:mt-52 "> NEW ARRIVALS</h1>
+      <div className="w-full -mt-7 md:-mt-0 md:h-[500px] h-[450px] bg-custom flex md:flex-row flex-col">
+        <div className="md:w-1/4  w-[345px]">
+          <h1 className="text-2xl font-roboto font-semibold text-gray-500 mt-5 flex justify-center md:mt-52 ">
+            NEW ARRIVALS
+          </h1>
         </div>
-        <div className="md:w-3/4 wapperDiv md:mt-12 mt-5 gap-3 ">
+        <div className="md:w-3/4 w-[345px]  -ml-[1px]  wapperDiv md:mt-12 mt-5 gap-3 ">
           {productData.map((item) => {
             return (
-              <div className="itemDiv cursor-pointer md:min-w-[333px] min-w-[300px] md:h-[435px] ">
+              <div className="itemDiv cursor-pointer md:min-w-[333px] min-w-[205px] md:h-[435px] ">
                 <img
-                  className="md:w-[333px]  md:h-[380px] "
+                  className="md:w-[333px] w-[200px] md:h-[380px] "
                   src={item.imageUrl}
                   alt="productCardImage"
                 />

@@ -48,12 +48,11 @@ export default function RecentView() {
   ];
   return (
     <>
-      {" "}
-      <div className="md:h-[410px] h-[420px] bg-custom ">
-        <h1 className="font-roboto md:text-xl font-bold md:text-gray-500 ml-5">
+      <div className="md:h-[410px] w-[345px] md:w-full h-[420px] bg-custom ">
+        <h1 className="font-roboto md:text-xl  font-bold text-gray-500 ">
           RECENTLY VIEWED
         </h1>
-        <div className="wapperDiv gap-5 md:mt-2 mt-5  ">
+        <div className="wapperDiv  -ml-[1px] md:-ml-0 gap-5 md:mt-8 mt-5  ">
           {productData.map((item) => {
             return (
               <div className="itemDiv  min-w-[200px] md:h-[435px] ">

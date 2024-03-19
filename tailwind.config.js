@@ -11,14 +11,15 @@ module.exports = withMT({
       },
       colors: {
         custom: "#FAF9F8",
+        Ylate:'#F1EBDF'
       },
     },
     screens: {
-      's' :'360px',
-      'xs' : '375px',
+  
       'sm': '414px',
       // => @media (min-width: 640px) { ... }
       'sm1' : '430px',
+      'sm2':'412px',
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
