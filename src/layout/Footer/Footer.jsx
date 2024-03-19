@@ -1,7 +1,7 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa6";
-import Brandlogo from '../../assets/favicon.png'
+import Brandlogo from '../../assets/favicon1.png'
 import { NavLink } from "react-router-dom";
 export default function Footer() {
   return (

@@ -33,14 +33,14 @@ export default function MainCategories() {
   return (
     <>
       {" "}
-      <div className=" ">
-        <h1 className="font-roboto font-bold text-3xl flex justify-center mt-4 md:pb-8 pb-5 text-gray-500 ">CATEGORIES</h1>
+      <div className="md:ml-0 ml-2 ">
+        <h1 className="font-roboto text-xl md:font-bold md:text-3xl ml-3 md:ml-5 md:flex justify-center  mt-4 md:pb-8 pb-5 md:text-gray-500 ">CATEGORIES</h1>
         <div className="warapper gap-4 md:ml-4 ml-2 ">
           {CategoriesData.map((item, index) => {
             return (
               <img
                 key={index}
-                className="md:w-1/5 w-1/2 cursor-pointer"
+                className="md:w-1/5 w-1/3  cursor-pointer"
                 src={item.imageUrl}
                 alt="collectionBanner"
               />

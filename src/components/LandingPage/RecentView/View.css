@@ -1,0 +1,14 @@
+.wapperDiv::-webkit-scrollbar{
+  width: 0;
+}
+.wapperDiv{
+  display: flex;
+  overflow-y: scroll;
+  /* margin-top: 30px; */
+  margin-left: 10px;
+}
+.itemDiv{
+ 
+ position: relative;
+  margin-right: 4px ;
+}
