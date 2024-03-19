@@ -96,7 +96,7 @@ export default function Navbar() {
         </div>
       ) : (
         <>
-          <div className="bg-custom z-20 fixed w-full h-16 flex justify-evenly ">
+          <div className="bg-custom z-20  fixed w-full h-16 flex justify-evenly ">
             <h1
               onClick={() => setHide(!hide)}
               className="font-roboto cursor-pointer text-gray-700 text-2xl py-4 pl-3"
@@ -135,7 +135,7 @@ export default function Navbar() {
             </div>
           </div>
           {!hide && (
-            <div className="bg-custom h-full w-[330px] -mt-16  absolute z-10 ">
+            <div className="bg-custom h-full w-[330px]  absolute z-20 ">
               <h1 onClick={() => setHide(!hide)} className="text-2xl ml-6 mt-4">
                 <RxCross1 />
               </h1>
