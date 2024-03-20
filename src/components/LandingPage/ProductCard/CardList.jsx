@@ -69,9 +69,9 @@ export default function CardList() {
           </h1>
         </div>
         <div className="md:w-3/4 w-[345px]  -ml-[1px]  wapperDiv md:mt-12 mt-5 gap-3 ">
-          {productData.map((item) => {
+          {productData.map((item,index) => {
             return (
-              <div className="itemDiv cursor-pointer md:min-w-[333px] min-w-[205px] md:h-[435px] ">
+              <div key={index} className="itemDiv cursor-pointer md:min-w-[333px] min-w-[205px] md:h-[435px] ">
                 <img
                   className="md:w-[333px] w-[200px] md:h-[380px] "
                   src={item.imageUrl}

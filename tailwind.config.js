@@ -6,12 +6,13 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
-        Rampart: ["Rampart One", "cursive"],
+        hanSans: ["Black Han Sans", "sans-serif"],
         sans : ["Open Sans", "sans-serif"]
       },
       colors: {
         custom: "#FAF9F8",
         Ylate:'#F1EBDF'
+        
       },
     },
     screens: {

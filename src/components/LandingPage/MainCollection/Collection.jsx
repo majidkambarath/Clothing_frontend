@@ -7,15 +7,16 @@ export default function Collection() {
     <>
       <div className=" pt-9 md:pt-12  h-[1200px] bg-custom  md:h-[500px]">
         <div className="w-full md:gap-5 gap-20 h-full flex md:flex-row flex-col">
-          <div className="w-full h-[450px] ">
+          <div className="w-full h-[450px] cursor-pointer ">
             <img
               className="md:w-[410px] object-cover  w-[342px] h-[342px] md:h-[450px] absolute"
               src={bln4}
               alt="CollectionBanner"
             />
-            <button className="font-sans w-32 bg-white h-9 font-semibold mt-1 relative md:top-[340px] top-[270px] md:left-[140px] cursor-pointer  left-[100px] ">
+            <button className="font-sans w-32 hidden md:block bg-white h-9 font-semibold mt-1 relative md:top-[360px] top-[270px] md:left-[140px] cursor-pointer  left-[100px] ">
               SHOP NOW
             </button>
+            <h1 className="relative top-72 md:pl-5 font-sans font-bold ml-11 text-white ">Explore Our Latest Men's T-Shirts!</h1>
           </div>
           <div className="w-full h-[450px] -mt-20 md:-mt-0  ">
             <img
@@ -24,7 +25,7 @@ export default function Collection() {
               alt="CollectionBanner"
             />
             <div className="absolute">
-              <h1 className="font-sans font-bold md:text-3xl text-2xl mt-5 text-black/40 ml-20 md:ml-24 md:mt-10 ">
+              <h1 className="font-hanSans font-extrabold  md:text-3xl text-4xl mt-5 text-black/60 ml-10 md:ml-20 md:mt-10 ">
                 NEW ARRIVALS
               </h1>
             </div>
@@ -92,9 +93,10 @@ export default function Collection() {
               </a>
             </div>
             <div className="absolute">
-              <button className="font-sans w-32 bg-white  h-9 font-semibold  md:mt-32 mt-10 ml-28 md:ml-36  cursor-pointer">
+              <button className="font-sans hidden md:block w-32 bg-white  h-9 font-semibold md:mt-36   mt-10 ml-28 md:ml-36  cursor-pointer">
                 SHOP NOW
               </button>
+               <h1 className="mt-14 md:-mt-20   md:pl-5 font-roboto md:relative  font-bold ml-10 text-white ">Fresh Styles, Hot Arrivals: Shop Now!</h1>
             </div>
           </div>
           <div className="w-full h-[450px] -mt-20 md:-mt-0  ">
@@ -172,9 +174,10 @@ export default function Collection() {
               </a>
             </div>
             <div className="absolute">
-              <button className="font-sans w-32 bg-white h-9 font-semibold md:mt-32 mt-8  cursor-pointer md:ml-36 ml-28 ">
+              <button className="font-sans w-32  hidden md:block bg-white h-9 font-semibold md:mt-32 mt-8  cursor-pointer md:ml-36 ml-28 ">
                 SHOP NOW
               </button>
+              <h1 className="mt-14 md:-mt-20   md:pl-5 font-roboto md:relative  font-bold ml-5 text-white ">Explore Men's Basics for Classic Comfort!</h1>
             </div>
           </div>
         </div>

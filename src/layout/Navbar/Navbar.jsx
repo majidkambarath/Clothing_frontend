@@ -58,7 +58,7 @@ export default function Navbar() {
                 NEWS LETTER
               </li>
               <li className="font-roboto text-[11px] cursor-pointer">
-              NEW OFFERS
+                NEW OFFERS
               </li>
             </ul>
           </div>
@@ -67,9 +67,12 @@ export default function Navbar() {
 
           <div className="flex gap-10 mr-5 mt-2">
             <div className="flex">
+              <NavLink to={'/account'}>
+
               <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
                 <SlUser />
               </h1>
+              </NavLink>
               <NavLink to={"/login"}>
                 <h1 className="cursor-pointer font-roboto text-xs pt-5 pl-2">
                   Sign in
@@ -112,9 +115,11 @@ export default function Navbar() {
             </NavLink>
 
             <div className="flex gap-5 pl-16">
-              <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
-                <SlUser />
-              </h1>
+              <NavLink to={"/account"}>
+                <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
+                  <SlUser />
+                </h1>
+              </NavLink>
               <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
                 <FiSearch />
               </h1>
@@ -135,7 +140,7 @@ export default function Navbar() {
             </div>
           </div>
           {!hide && (
-            <div className="bg-custom h-full w-[330px]  absolute z-20 ">
+            <div className="bg-custom h-full w-[330px] fixed z-20  ">
               <h1 onClick={() => setHide(!hide)} className="text-2xl ml-6 mt-4">
                 <RxCross1 />
               </h1>
