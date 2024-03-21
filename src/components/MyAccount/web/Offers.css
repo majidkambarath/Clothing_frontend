@@ -1,0 +1,13 @@
+.wapperDiv::-webkit-scrollbar{
+    width: 0;
+  }
+  .wapperDiv{
+    display: flex;
+    overflow-y: scroll;
+    
+  }
+  .itemDiv{
+   
+   position: relative;
+  
+  }
