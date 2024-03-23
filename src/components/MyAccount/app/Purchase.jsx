@@ -25,7 +25,7 @@ export default function Purchase() {
           </Link>
         </Breadcrumbs>
         <h1 className='font-sans text-2xl mt-5 flex  underline justify-center font-semibold'>My purchases</h1>
-           <div className="">
+           <div>
             <Purchases/>
 
            </div>

@@ -6,6 +6,9 @@ import RegisterPage from "../../pages/User/RegisterPage";
 import AccountPage from "../../pages/User/MyAccount/AccountPage";
 import PurchasePage from "../../pages/User/MyAccount/PurchasePage";
 import SettingPage from "../../pages/User/MyAccount/SettingPage";
+import SettingEdit from "../../pages/User/MyAccount/SettingEdit";
+import AddressEdit from "../../pages/User/MyAccount/AddressEdit";
+
 export default function UserRouter() {
   return (
     <Routes>
@@ -15,6 +18,8 @@ export default function UserRouter() {
       <Route path="/account" element={<AccountPage />} />
       <Route path="/purchase" element={<PurchasePage />} />
       <Route path="/settings" element={<SettingPage />} />
+      <Route path="/account/editdetails" element={<SettingEdit />} />
+      <Route path="/account/addressbook" element={<AddressEdit />} />
     </Routes>
   );
 }
