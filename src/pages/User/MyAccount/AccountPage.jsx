@@ -2,7 +2,7 @@ import React from "react";
 import Account from "../../../components/MyAccount/web/Account";
 import MyAccount from "../../../components/MyAccount/web/MyAccount";
 import Navbar from "../../../layout/Navbar/Navbar";
-import CategoriesHeader from "../../../components/LandingPage/CategoriesHeader";
+import CategoriesHeader from "../../../layout/Header/CategoriesHeader";
 import Footer from '../../../layout/Footer/Footer'
 import AccountApp from "../../../components/MyAccount/app/Account";
 export default function AccountPage() {

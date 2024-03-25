@@ -109,7 +109,7 @@ export default function Settings() {
             </div>
           )}
         </div>
-        <div className="bg-white md:h-[160px] md:w-3/4 h-48 md:ml-20 mt-7">
+        <div className="bg-white md:h-[160px]  md:w-3/4 h-48 md:ml-20 mt-7">
           <div className="flex justify-between ">
             <h1 className="font-sans text-md font-semibold py-4 px-4">
               Privacy
@@ -122,11 +122,11 @@ export default function Settings() {
             <h1 className="font-sans text-[13px]  hover:underline cursor-pointer mt-3 ml-5">
               My privacy portal
             </h1>
-            <h1 className="font-sans text-[11px] ml-5">
+            <h1 className="font-sans text-[11px] mt-1 ml-5">
               On Blnzed privacy portal you can see your personal data across our
               brands and countries. Here you can edit subscriptions, request a
               copy of your data or choose to delete your information.
-            </h1>
+            </h1> 
           </div>
         </div>
         <div className="md:h-20"></div>

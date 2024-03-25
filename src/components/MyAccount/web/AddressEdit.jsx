@@ -53,9 +53,9 @@ export default function AddressEdit() {
         <div
           className={`bg-white md:w-3/4 ${
             hide ? "md:h-full" : "md:h-[150px]"
-          } h-full md:ml-20 mt-7`}
+          } h-full pb-4 md:pb-0 md:ml-20 mt-7`}
         >
-          <div className="flex justify-between ">
+          <div className="flex  justify-between ">
             <h1 className="font-sans text-md font-semibold py-4 px-4">
               Billing Address
             </h1>

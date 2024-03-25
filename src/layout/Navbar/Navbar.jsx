@@ -8,7 +8,7 @@ import { GrFavorite } from "react-icons/gr";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Search from "./Search";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Avatar, Typography } from "@material-tailwind/react";
 import { RxCross1 } from "react-icons/rx";
 import { HiOutlineArrowRight } from "react-icons/hi2";
@@ -17,6 +17,8 @@ import image2 from "../../assets/cat2.webp";
 import image3 from "../../assets/cat3.webp";
 import image4 from "../../assets/cat4.webp";
 import image5 from "../../assets/cat5.webp";
+import image7 from "../../assets/cat6.webp";
+import image6 from "../../assets/bln4.jpg";
 export default function Navbar() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(true);
@@ -62,9 +64,11 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
+        <Link to={'/'}>
+        <img className=" md:w-20 py-3  " src={logo} alt="LogoPNG" />
 
-          <img className=" md:w-20 py-3  " src={logo} alt="LogoPNG" />
-
+        </Link>
+          
           <div className="flex gap-10 mr-5 mt-2">
             <div className="flex">
               <NavLink to={'/account'}>
@@ -145,7 +149,52 @@ export default function Navbar() {
                 <RxCross1 />
               </h1>
               <div className=" mt-8 ml-5 ">
-                <div className="flex flex-col gap-6 ">
+               <Link to={'/product/men'}>
+               <div className="flex flex-col gap-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image5} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs  font-roboto font-semibold">
+                        MEN
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl  ml-40 cursor-pointer">
+                      <HiOutlineArrowRight />
+                    </h1>
+                  </div>
+                </div>
+               </Link> 
+                
+               <Link to={'/product/women'}>
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image3} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                        WOMEN
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-36 cursor-pointer">
+                      <HiOutlineArrowRight />
+                    </h1>
+                  </div>
+                </div>
+                </Link> 
+                <div className="flex flex-col gap-6 mt-6 ">
+                  <div className="flex items-center gap-4">
+                    <Avatar className="object-top" src={image7} alt="avatar" />
+                    <div>
+                      <Typography className="text-xs font-roboto font-semibold">
+                      WOMENS BASICS
+                      </Typography>
+                    </div>
+                    <h1 className="text-xl ml-[90px] cursor-pointer">
+                      <HiOutlineArrowRight />
+                    </h1>
+                  </div>
+                </div>
+               
+                <div className="flex flex-col gap-6 mt-6 ">
                   <div className="flex items-center gap-4">
                     <Avatar className="object-top" src={image1} alt="avatar" />
                     <div>
@@ -158,58 +207,7 @@ export default function Navbar() {
                     </h1>
                   </div>
                 </div>
-                <div className="flex flex-col gap-6 mt-6 ">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="object-top" src={image5} alt="avatar" />
-                    <div>
-                      <Typography className="text-xs font-roboto font-semibold">
-                        OVERSIZED T SHIRT
-                      </Typography>
-                    </div>
-                    <h1 className="text-xl ml-20 cursor-pointer">
-                      <HiOutlineArrowRight />
-                    </h1>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-6 mt-6 ">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="object-top" src={image2} alt="avatar" />
-                    <div>
-                      <Typography className="text-xs font-roboto font-semibold">
-                        OVERSIZED T SHIRT
-                      </Typography>
-                    </div>
-                    <h1 className="text-xl ml-20 cursor-pointer">
-                      <HiOutlineArrowRight />
-                    </h1>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-6 mt-6 ">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="object-top" src={image3} alt="avatar" />
-                    <div>
-                      <Typography className="text-xs font-roboto font-semibold">
-                        OVERSIZED T SHIRT
-                      </Typography>
-                    </div>
-                    <h1 className="text-xl ml-20 cursor-pointer">
-                      <HiOutlineArrowRight />
-                    </h1>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-6 mt-6 ">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="object-top" src={image4} alt="avatar" />
-                    <div>
-                      <Typography className="text-xs font-roboto font-semibold">
-                        OVERSIZED T SHIRT
-                      </Typography>
-                    </div>
-                    <h1 className="text-xl ml-20 cursor-pointer">
-                      <HiOutlineArrowRight />
-                    </h1>
-                  </div>
-                </div>
+
                 <div className="mt-10">
                   <ul>
                     <NavLink to={"/login"}>

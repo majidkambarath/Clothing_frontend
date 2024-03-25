@@ -1,7 +1,7 @@
 import React from "react";
 import Account from "../../../components/MyAccount/web/Account";
 import Navbar from "../../../layout/Navbar/Navbar";
-import CategoriesHeader from "../../../components/LandingPage/CategoriesHeader";
+import CategoriesHeader from "../../../layout/Header/CategoriesHeader";
 import Footer from "../../../layout/Footer/Footer";
 import Settings from "../../../components/MyAccount/web/Settings";
 import { Link } from "react-router-dom";

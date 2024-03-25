@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../layout/Header/Header";
-import CategoriesHeader from "./CategoriesHeader";
+import CategoriesHeader from "../../layout/Header/CategoriesHeader";
 import MainCollection from "./MainCollection/Collection"
 import Categories from "./Categories/MainCategories";
 import ProductCard from './ProductCard/CardList'
