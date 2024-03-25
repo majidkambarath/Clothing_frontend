@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../layout/Header/Header";
 import CategoriesHeader from "../../layout/Header/CategoriesHeader";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
-
+import { RxCross1 } from "react-icons/rx";
 import Footer from "../../layout/Footer/Footer";
 import product1 from "../../assets/product1.webp";
 import product2 from "../../assets/product2.webp";
@@ -16,6 +16,7 @@ import product8 from "../../assets/product8.webp";
 export default function ProductCard() {
   const productData = [
     {
+      id: 1,
       imageUrl: [product1, product2],
       category: "men",
       isActive: true,
@@ -24,6 +25,7 @@ export default function ProductCard() {
       price: 3500,
     },
     {
+      id: 2,
       imageUrl: [product2, product3],
       category: "men",
       isActive: true,
@@ -32,6 +34,7 @@ export default function ProductCard() {
       price: 2500,
     },
     {
+      id: 3,
       imageUrl: [product3, product4],
       category: "men",
       isActive: true,
@@ -40,6 +43,7 @@ export default function ProductCard() {
       price: 4500,
     },
     {
+      id: 4,
       imageUrl: [product5, product6],
       category: "women",
       isActive: false,
@@ -48,6 +52,7 @@ export default function ProductCard() {
       price: 3499,
     },
     {
+      id: 5,
       imageUrl: [product7, product8],
       category: "women",
       isActive: true,
@@ -56,6 +61,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 6,
       imageUrl: [product4, product5],
       category: "women",
       isActive: false,
@@ -64,6 +70,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 7,
       imageUrl: [product5, product7],
       category: "women",
       isActive: true,
@@ -72,6 +79,7 @@ export default function ProductCard() {
       price: 6999,
     },
     {
+      id: 8,
       imageUrl: [product8, product2],
       category: "men",
       isActive: true,
@@ -80,6 +88,7 @@ export default function ProductCard() {
       price: 7999,
     },
     {
+      id: 9,
       imageUrl: [product7, product8],
       category: "women",
       isActive: false,
@@ -88,6 +97,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 10,
       imageUrl: [product4, product5],
       category: "men",
       isActive: false,
@@ -96,6 +106,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 11,
       imageUrl: [product5, product7],
       category: "women",
       isActive: true,
@@ -104,6 +115,7 @@ export default function ProductCard() {
       price: 6999,
     },
     {
+      id: 12,
       imageUrl: [product8, product2],
       category: "t-shirt",
       isActive: true,
@@ -112,6 +124,7 @@ export default function ProductCard() {
       price: 7999,
     },
     {
+      id: 13,
       imageUrl: [product8, product2],
       category: "t-shirt",
       isActive: false,
@@ -120,6 +133,7 @@ export default function ProductCard() {
       price: 7999,
     },
     {
+      id: 14,
       imageUrl: [product7, product8],
       category: "t-shirt",
       isActive: true,
@@ -128,6 +142,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 15,
       imageUrl: [product4, product5],
       category: "t-shirt",
       isActive: false,
@@ -136,6 +151,7 @@ export default function ProductCard() {
       price: 4999,
     },
     {
+      id: 16,
       imageUrl: [product5, product7],
       category: "t-shirt",
       isActive: true,
@@ -144,6 +160,7 @@ export default function ProductCard() {
       price: 6999,
     },
     {
+      id: 17,
       imageUrl: [product8, product2],
       category: "t-shirt",
       isActive: false,
@@ -154,6 +171,7 @@ export default function ProductCard() {
   ];
   const [productItems, setProductItem] = useState(productData);
   const [fetchData, setFetchData] = useState([]);
+  const [hide, setHide] = useState(true);
   const { item } = useParams();
   console.log(item);
   useEffect(() => {
@@ -181,10 +199,13 @@ export default function ProductCard() {
           </div>
           <div className="md:hidden mt-5 flex justify-between ">
             <h1 className="font-roboto text-xs">{fetchData.length} PRODUCTS</h1>
-
-            <h1 className="font-roboto text-xs">FILTER AND SORT</h1>
+            <h1
+              onClick={() => setHide(!hide)}
+              className="font-roboto text-xs underline"
+            >
+              FILTER AND SORT
+            </h1>
           </div>
-
           <div className="md:flex hidden mt-4">
             <div className="flex gap-10">
               <h1 className="font-roboto text-xs">FILTER </h1>
@@ -200,9 +221,10 @@ export default function ProductCard() {
             </div>
           </div>
 
-          <div className="grid pb-10 grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-2 md:mt-5 mt-5   ml-1">
+          <div className="grid pb-10 relative grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-2 md:mt-5 mt-5   ml-1">
             {fetchData.slice(0, 16).map((item, index) => {
               return (
+                <Link key={item.id} to={`/details/${item.id}`}>
                 <div
                   key={index}
                   onMouseEnter={(e) => {
@@ -230,6 +252,7 @@ export default function ProductCard() {
                     RS. {item.price}
                   </h1>
                 </div>
+                </Link>
               );
             })}
           </div>

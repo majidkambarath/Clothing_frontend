@@ -1,0 +1,7 @@
+.warapper::-webkit-scrollbar{
+    width: 0;
+  }
+  .warapper{
+    display: flex;
+    overflow-y: scroll;
+  }
