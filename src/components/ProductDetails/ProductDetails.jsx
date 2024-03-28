@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Drawer,
   Button,
@@ -180,6 +180,7 @@ export default function ProductDetails() {
       price: 7999,
     },
   ];
+
   const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState("");
   const [openRight, setOpenRight] = React.useState(false);
@@ -205,9 +206,21 @@ export default function ProductDetails() {
     console.log("ss");
     toast.success("Added to the cart!");
   };
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll to the div
+      divRef.current.focus(); // Focus on the div
+    }
+  }, []);
   return (
     <>
-      <div className=" h-full w-full py-20 md:py-10  md:flex">
+      <div
+        ref={divRef}
+        tabIndex={0}
+        className=" h-full w-full py-20 md:py-10  md:flex"
+      >
         <div className="warapper md:hidden  gap-2">
           {productDetails.imageUrl?.map((item, index) => {
             return (

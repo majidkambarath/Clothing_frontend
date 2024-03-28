@@ -8,7 +8,7 @@ import product6 from "../../../assets/product6.webp";
 import product7 from "../../../assets/product7.webp";
 import product8 from "../../../assets/product8.webp";
 import { Link } from "react-router-dom";
-export default function ProductList() {
+export default function ProductCards() {
   const productData = [
     {
       id: 1,
@@ -165,17 +165,17 @@ export default function ProductList() {
     },
   ];
   return (
-    <div className=" pt-10 bg-custom   w-full md:w-full h-full  ">
+    <div className=" pt-10 bg-custom  w-full md:w-full h-full  ">
       <div className="flex justify-between">
         <h1 className="font-roboto md:font-bold text-xs pb-2  ml-6">
-          LATEST DROP
+          MORE FROM BLNZED
         </h1>
         <button className="bg-white text-[10px] font-roboto mr-3  h-6 w-28">
           DISCOVER MORE
         </button>
       </div>
-      <div className="grid px-2  bg-custom grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-1 mt-4  ml-1">
-        {productData.slice(0, 4).map((item, index) => {
+      <div className="grid px-2 bg-custom grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-1 mt-4  ml-1">
+        {productData.slice(0, 8).map((item, index) => {
           return (
             <Link key={item.id} to={`/details/${item.id}`}>
               <div key={index} className="md:h-[435px] cursor-pointer">

@@ -1,29 +1,39 @@
 import React from "react";
 import Header from "../../layout/Header/Header";
 import CategoriesHeader from "../../layout/Header/CategoriesHeader";
-import MainCollection from "./MainCollection/Collection"
+import MainCollection from "./MainCollection/Collection";
 import Categories from "./Categories/MainCategories";
-import ProductCard from './ProductCard/CardList'
+import ProductCard from "./ProductCard/CardList";
 import ProductList from "./ProductList/ProductList";
+import ProductCards from "./ProductList/ProductCards";
 import Footer from "../../layout/Footer/Footer";
 import RecentView from "./RecentView/RecentView";
 import SubHeader from "./SubHeader";
+import Banner from "./Banner/MainBanner";
+import SubBanner from "./Banner/SubBanner";
 export default function LandingPage() {
   return (
     <div className="bg-custom">
       <Header />
-      <div className="container md:max-w-screen-2xl mx-auto px-6 sm1:px-11 sm2:px-9 sm:px-9 ">
-      <CategoriesHeader />
-      <SubHeader/>
-      <MainCollection />
-      {/* <Categories/> */}
-     <ProductCard/>
-     <RecentView/>
-     <ProductList/>
+
+      <Banner />
+
+      <div className=" absolute z-20 top-[680px]  md:top-[650px]">
+       
+        <ProductList />
+      
+       
+        <SubBanner />
+        <ProductCards />
+        <Footer />
+        {/* <CategoriesHeader /> */}
+        {/* <SubHeader/> */}
+        {/* <MainCollection /> */}
+        {/* <Categories/> */}
+        {/* <ProductCard/> */}
+        {/* <RecentView/> */}
+        {/* <ProductList/> */}
       </div>
-     <Footer/>
     </div>
   );
-
-
 }

@@ -10,7 +10,7 @@ module.exports = withMT({
         sans : ["Open Sans", "sans-serif"]
       },
       colors: {
-        custom: "#FAF9F8",
+        custom: "#EFEFEF",
         Ylate:'#F1EBDF'
         
       },

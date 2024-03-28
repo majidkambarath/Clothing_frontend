@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../layout/Header/Header";
+import SubNavbar from "../../layout/Navbar/SubNavbar";
 import CategoriesHeader from "../../layout/Header/CategoriesHeader";
 import { Link, useParams } from "react-router-dom";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
@@ -189,7 +189,7 @@ export default function ProductCard() {
   return (
     <>
       <div className="bg-custom h-full">
-        <Header />
+        <SubNavbar />
         <div className="container md:py-0 py-20 md:max-w-screen-2xl mx-auto px-6 sm1:px-11 sm2:px-9 sm:px-9 ">
           <CategoriesHeader />
           <div className="  md:pt-5">

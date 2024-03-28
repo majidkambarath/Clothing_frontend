@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/logo3.png";
+import logo from "../../assets/logo.png";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
@@ -19,7 +19,7 @@ import image4 from "../../assets/cat4.webp";
 import image5 from "../../assets/cat5.webp";
 import image7 from "../../assets/cat6.webp";
 import image6 from "../../assets/bln4.jpg";
-export default function Navbar() {
+export default function SubNavbar() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(true);
   const [hide, setHide] = useState(true);
@@ -112,11 +112,11 @@ export default function Navbar() {
             <div className="flex ">
             <h1
               onClick={() => setHide(!hide)}
-              className="font-roboto cursor-pointer  text-white/80 text-2xl py-4 pl-3"
+              className="font-roboto cursor-pointer  text-black/60 text-2xl py-4 pl-3"
             >
               <FiMenu />
             </h1>
-            <h1 className="cursor-pointer ml-4 py-1 text-white/80  text-2xl mt-3">
+            <h1 className="cursor-pointer ml-4 py-1 text-black/60  text-2xl mt-3">
                 <FiSearch />
               </h1>
             </div>
@@ -130,10 +130,10 @@ export default function Navbar() {
             </NavLink>
              <div>
              <div className="flex mr-4 py-">
-                <h1 className="cursor-pointer py-1 text-white/80 text-2xl mt-3">
+                <h1 className="cursor-pointer py-1 text-black/60 text-2xl mt-3">
                   <HiOutlineShoppingBag />
                 </h1>
-                <h1 className="font-roboto py-1 text-white/80 font-bold ">1</h1>
+                <h1 className="font-roboto py-1 text-black/60 font-bold ">1</h1>
               </div>
              </div>
             {/* <div className="flex gap-5 pl-16"> */}
