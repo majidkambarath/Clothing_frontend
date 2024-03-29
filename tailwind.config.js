@@ -14,6 +14,9 @@ module.exports = withMT({
         Ylate:'#F1EBDF'
         
       },
+      animation: {
+        "spin-slow": "spin 25s linear infinite",
+    },
     },
     screens: {
   
