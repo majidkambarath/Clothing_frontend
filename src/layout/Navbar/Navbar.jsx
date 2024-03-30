@@ -53,17 +53,17 @@ export default function Navbar() {
         <div className="bg-transparent fixed z-30 w-full h-16 flex justify-between ">
           <div className="ml-7 mt-7">
             <ul className="flex gap-4 ">
-              <Link to={'/product/best-sellers'}>
+              <Link to={"/product/best-sellers"}>
                 <li className="font-roboto text-[11px] cursor-pointer ">
                   BEST SELLERS
                 </li>
               </Link>
-              <Link to={'/product/new-in'}>
+              <Link to={"/product/new-in"}>
                 <li className="font-roboto text-[11px] cursor-pointer">
                   NEW ARRIVALS
                 </li>
               </Link>
-              <Link to={'product/new-offers'}>
+              <Link to={"product/new-offers"}>
                 <li className="font-roboto text-[11px] cursor-pointer">
                   NEW OFFERS
                 </li>
@@ -75,12 +75,11 @@ export default function Navbar() {
           </Link>
 
           <div className="flex gap-10 mr-5 mt-2">
-         
             <div className="flex">
-            <NavLink to={"/account"}>
-            <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
-                <SlUser />
-              </h1>
+              <NavLink to={"/account"}>
+                <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
+                  <SlUser />
+                </h1>
               </NavLink>
               <NavLink to={"/login"}>
                 <h1 className="cursor-pointer font-roboto text-xs pt-5 pl-2">
@@ -110,42 +109,42 @@ export default function Navbar() {
         <>
           <div className="bg-transparent fixed z-30  w-full h-16 flex justify-between ">
             <div className="flex ">
-            <h1
-              onClick={() => setHide(!hide)}
-              className="font-roboto cursor-pointer  text-white/80 text-2xl py-4 pl-3"
-            >
-              <FiMenu />
-            </h1>
-            <h1 className="cursor-pointer ml-3 py-1 text-white/80  text-2xl mt-3">
+              <h1
+                onClick={() => setHide(!hide)}
+                className="font-roboto cursor-pointer  text-white/80 text-2xl py-4 pl-3"
+              >
+                <FiMenu />
+              </h1>
+              <h1 className="cursor-pointer ml-3 py-1 text-white/80  text-2xl mt-3">
                 <FiSearch />
               </h1>
             </div>
-            
+
             <NavLink to={"/"}>
-            <div className="mr-2">
-              <img
-                className="w-full  mt-3 h-10  cursor-pointer  "
-                src={logo}
-                alt="LogoPNG"
-              />
+              <div className="mr-2">
+                <img
+                  className="w-full mt-3 h-10  cursor-pointer  "
+                  src={logo}
+                  alt="LogoPNG"
+                />
               </div>
             </NavLink>
-             <div>
-             <div className="flex mr-4 py-">
+            <div>
+              <div className="flex mr-4 py-">
                 <h1 className="cursor-pointer py-1 text-white/80 text-2xl mt-3">
                   <HiOutlineShoppingBag />
                 </h1>
                 <h1 className="font-roboto py-1 text-white/80 font-bold ">1</h1>
               </div>
-             </div>
+            </div>
             {/* <div className="flex gap-5 pl-16"> */}
-              {/* <NavLink to={"/account"}>
+            {/* <NavLink to={"/account"}>
                 <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
                   <SlUser />
                 </h1>
               </NavLink> */}
-            
-              {/* <div className="flex  ">
+
+            {/* <div className="flex  ">
                 <h1 className="cursor-pointer py-1 text-gray-700  text-2xl  mt-3">
                   <GrFavorite />
                 </h1>
@@ -153,12 +152,15 @@ export default function Navbar() {
                   1
                 </h1>
               </div> */}
-             
+
             {/* </div> */}
           </div>
           {!hide && (
             <div className="bg-custom h-full w-[330px] fixed z-40  ">
-              <h1 onClick={() => setHide(!hide)} className="text-2xl cursor-pointer ml-6 mt-4">
+              <h1
+                onClick={() => setHide(!hide)}
+                className="text-2xl cursor-pointer ml-6 mt-4"
+              >
                 <RxCross1 />
               </h1>
               <div className=" mt-8 ml-5 ">
@@ -248,14 +250,14 @@ export default function Navbar() {
                       <li className="font-roboto text-xs">LOGIN</li>
                     </NavLink>
                     <NavLink to={"/account"}>
-                    <li className="font-roboto cursor-pointer text-xs mt-6">
-                      MY ACCOUNT
-                    </li>
+                      <li className="font-roboto cursor-pointer text-xs mt-6">
+                        MY ACCOUNT
+                      </li>
                     </NavLink>
                     <NavLink to={"/account"}>
-                    <li className="font-roboto cursor-pointer text-xs mt-6">
-                      NEW OFFERS
-                    </li>
+                      <li className="font-roboto cursor-pointer text-xs mt-6">
+                        NEW OFFERS
+                      </li>
                     </NavLink>
                   </ul>
                 </div>
@@ -267,8 +269,6 @@ export default function Navbar() {
     </>
   );
 }
-
-
 
 {
   /* <div className="bg-custom w-full h-16 flex ">
