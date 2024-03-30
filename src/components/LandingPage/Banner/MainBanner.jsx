@@ -8,24 +8,20 @@ import { Link } from "react-router-dom";
 export default function MainBanner() {
   return (
     <>
-      <div className="md:hidden fixed bg-black h-[800px] w-full block">
+      <div className="md:hidden fixed bg-black h-[702px] w-full block">
         <img
           className="w-full h-full object-cover"
           src={ban2}
           alt="MainBanner"
         />
         <div className="flex justify-center">
-        <div className="absolute ">
-          <img
-            className="w-40 -mt-[560px]  h-full object-cover"
-            src={logo}
-            alt="BrandLogo"
-          />
-          <Link to={"/product/new-in"}>
-            <h1 className="text-white font-roboto text-xs cursor-pointer mt-80 ml-12 ">
+        <div className="absolute top-0 mt-52  ">
+        <Link to={"/product/new-in"}>
+            <h1 className="text-white font-roboto text-[12px] cursor-pointer mt-80 ml-6 ">
               SHOP ALL
             </h1>
           </Link>
+          
         </div>
         </div>
      
@@ -37,14 +33,9 @@ export default function MainBanner() {
           alt="MainBanner"
         />
         <div className="flex justify-center">
-          <div className="absolute  ">
-            <img
-              className="w-40 -mt-[350px]   h-full object-cover"
-              src={logo1}
-              alt="BrandLogo"
-            />
+          <div className="absolute top-0 mt-[360px]  ">
             <Link to={"/product/new-in"}>
-              <h1 className="text-black font-roboto text-xs cursor-pointer mt-48 ml-12  ">
+              <h1 className="text-black font-roboto text-[12px] cursor-pointer mt-48 ml-12  ">
                 SHOP ALL
               </h1>
             </Link>

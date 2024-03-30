@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SubNavbar from "../../layout/Navbar/SubNavbar";
+import CustomNavbar from "../../layout/Navbar/CustomNavbar";
 import CategoriesHeader from "../../layout/Header/CategoriesHeader";
 import { Link, useParams } from "react-router-dom";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
@@ -188,70 +189,76 @@ export default function ProductCard() {
   }, [item]);
   return (
     <>
-      <div className="bg-custom h-full">
-        <SubNavbar />
-        <div className="container md:py-0 py-20 md:max-w-screen-2xl mx-auto px-6 sm1:px-11 sm2:px-9 sm:px-9 ">
-          <CategoriesHeader />
-          <div className="  md:pt-5">
-            <h1 className="font-sans font-semibold  text-xl flex justify-center ">
+      <div className="bg-custom w-full h-full">
+        <CustomNavbar />
+
+        <div className=" py-28 md:py-32  ">
+          {/* <div className="  md:pt-5 md:hidden block">
+            <h1 className="font-sans font-semibold  text-xl px-4 ">
               {item.toUpperCase()}
             </h1>
-          </div>
-          <div className="md:hidden mt-5 flex justify-between ">
-            <h1 className="font-roboto text-xs">{fetchData.length} PRODUCTS</h1>
+          </div> */}
+          <div className="md:hidden mt-2 px-2  flex justify-between ">
+            <h1 className="font-roboto text-xs md:text-[8px]">
+              {fetchData.length} PRODUCTS
+            </h1>
             <h1
               onClick={() => setHide(!hide)}
-              className="font-roboto text-xs underline"
+              className="font-roboto text-xs md:text-[8px] underline"
             >
               FILTER AND SORT
             </h1>
           </div>
           <div className="md:flex hidden mt-4">
-            <div className="flex gap-10">
-              <h1 className="font-roboto text-xs">FILTER </h1>
-              <h1 className="font-roboto text-xs">AVAILABILITY </h1>
-              <h1 className="font-roboto text-xs">PRICE </h1>
+            <div className="flex gap-10 ml-10">
+              <h1 className="font-roboto text-xs md:text-[8px]">FILTER </h1>
+              <h1 className="font-roboto text-xs md:text-[8px]">
+                AVAILABILITY{" "}
+              </h1>
+              <h1 className="font-roboto text-xs md:text-[8px]">PRICE </h1>
             </div>
-            <div className="ml-auto flex gap-10">
-              <h1 className="font-roboto text-xs">SORT BY </h1>
-              <h1 className="font-roboto text-xs">FEATURED </h1>
-              <h1 className="font-roboto text-xs">
+            <div className="ml-auto flex gap-10 mr-10">
+              <h1 className="font-roboto text-xs md:text-[8px]">SORT BY </h1>
+              <h1 className="font-roboto text-xs md:text-[8px]">FEATURED </h1>
+              <h1 className="font-roboto text-xs md:text-[8px]">
                 {fetchData.length} PRODUCTS
               </h1>
             </div>
           </div>
 
-          <div className="grid pb-10 relative grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-2 md:mt-5 mt-5   ml-1">
+          <div className="grid px-1 pb-10 relative grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-1 md:gap-1 md:mt-5 mt-5   ml-1">
             {fetchData.slice(0, 16).map((item, index) => {
               return (
                 <Link key={item.id} to={`/details/${item.id}`}>
-                <div
-                  key={index}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.querySelector("img").src = item.imageUrl[1];
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.querySelector("img").src = item.imageUrl[0];
-                  }}
-                  className="md:h-[435px] cursor-pointer"
-                >
-                  {!item.isActive && (
-                    <h1 className="absolute md:ml-44 h-8 font-roboto pt-1 font-bold text-white bg-black/45 w-28 pl-3 mt-5">
-                      SOLD OUT
+                  <div
+                    key={index}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.querySelector("img").src =
+                        item.imageUrl[1];
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.querySelector("img").src =
+                        item.imageUrl[0];
+                    }}
+                    className="md:h-[435px] cursor-pointer"
+                  >
+                    {!item.isActive && (
+                      <h1 className="absolute md:ml-44 h-8 font-roboto pt-1 font-bold text-white bg-black/45 w-28 pl-3 mt-5">
+                        SOLD OUT
+                      </h1>
+                    )}
+                    <img
+                      className="md:w-[333px]   object-cover  md:h-[380px] "
+                      src={item?.imageUrl[0]}
+                      alt="productCardImage"
+                    />
+                    <h1 className="text-[9px] font-sans mt-2 md:font-bold">
+                      DUTCH BLU GARLAND T-SHIRT
                     </h1>
-                  )}
-                  <img
-                    className="md:w-[333px]   object-cover  md:h-[380px] "
-                    src={item?.imageUrl[0]}
-                    alt="productCardImage"
-                  />
-                  <h1 className="text-xs font-sans mt-2 md:font-bold">
-                    DUTCH BLU GARLAND T-SHIRT
-                  </h1>
-                  <h1 className="text-xs font-sans text-gray-500  font-bold">
-                    RS. {item.price}
-                  </h1>
-                </div>
+                    <h1 className="text-[9px] font-sans text-gray-500  font-bold">
+                      RS. {item.price}
+                    </h1>
+                  </div>
                 </Link>
               );
             })}

@@ -25,6 +25,10 @@ import toast from "react-hot-toast";
 export default function ProductDetails() {
   const cartData = useSelector((state) => state.cart.carts);
   console.log(cartData);
+  const divRef = useRef(null);
+  useEffect(() => {
+    divRef.current?.focus();
+  }, []);
   const productData = [
     {
       id: 1,
@@ -206,20 +210,13 @@ export default function ProductDetails() {
     console.log("ss");
     toast.success("Added to the cart!");
   };
-  const divRef = useRef(null);
 
-  useEffect(() => {
-    if (divRef.current) {
-      divRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll to the div
-      divRef.current.focus(); // Focus on the div
-    }
-  }, []);
   return (
     <>
       <div
         ref={divRef}
-        tabIndex={0}
-        className=" h-full w-full py-20 md:py-10  md:flex"
+        // tabIndex={0}
+        className=" h-full outline-none w-full py-20 md:py-10  md:flex"
       >
         <div className="warapper md:hidden  gap-2">
           {productDetails.imageUrl?.map((item, index) => {
@@ -250,13 +247,13 @@ export default function ProductDetails() {
          h-[550px]"
         >
           <div className="md:ml-10 py-10">
-            <h1 className="font-roboto font-semibold text-[16px]">
+            <h1 className="font-roboto font-semibold md:text-[20px] text-[11px]">
               {productDetails.title}
             </h1>
             <h1 className="font-sans text-[13px] text-gray-500">
               MRP inclusive of all taxes
             </h1>
-            <h1 className="font-sans text-[20px] font-bold">
+            <h1 className="font-sans md:text-[18px] text-[11px] font-bold">
               Rs. {productDetails.price}.00
             </h1>
           </div>
@@ -364,23 +361,23 @@ export default function ProductDetails() {
               </div> */}
               <div
                 onClick={() => handleSizeClick("S")}
-                className={`h-10 md:w-20 border cursor-pointer border-gray-300 ${
+                className={`h-10 md:w-20 border cursor-pointer rounded-md border-gray-500 ${
                   selectedSize === "S" ? "bg-gray-700 text-white" : ""
                 }`}
               >
-                <h1 className="font-sans text-sm py-2 px-6 md:px-9">S</h1>
+                <h1 className="font-sans text-sm py-2 px-7 md:px-9">S</h1>
               </div>
               <div
                 onClick={() => handleSizeClick("M")}
-                className={`h-10 md:w-20 border cursor-pointer border-gray-300 ${
+                className={`h-10 md:w-20 border cursor-pointer rounded-md border-gray-500 ${
                   selectedSize === "M" ? "bg-gray-700 text-white" : ""
                 }`}
               >
-                <h1 className="font-sans text-sm py-2 px-6 md:px-8">M</h1>
+                <h1 className="font-sans text-sm py-2 px-7 md:px-8">M</h1>
               </div>
               <div
                 onClick={() => handleSizeClick("L")}
-                className={`h-10 md:w-20 border cursor-pointer border-gray-300 ${
+                className={`h-10 md:w-20 border cursor-pointer rounded-md border-gray-500 ${
                   selectedSize === "L" ? "bg-gray-700 text-white" : ""
                 }`}
               >
@@ -388,19 +385,19 @@ export default function ProductDetails() {
               </div>
               <div
                 onClick={() => handleSizeClick("XL")}
-                className={`h-10 md:w-20 border cursor-pointer border-gray-300 ${
+                className={`h-10 md:w-20 border cursor-pointer rounded-md border-gray-500 ${
                   selectedSize === "XL" ? "bg-gray-700 text-white" : ""
                 }`}
               >
-                <h1 className="font-sans text-sm py-2 px-5 md:px-7">XL</h1>
+                <h1 className="font-sans text-sm py-2 px-6 md:px-7">XL</h1>
               </div>
               <div
                 onClick={() => handleSizeClick("XXL")}
-                className={`h-10 md:w-20 border cursor-pointer border-gray-300 ${
+                className={`h-10 md:w-20 border cursor-pointer rounded-md border-gray-500 ${
                   selectedSize === "XXL" ? "bg-gray-700 text-white" : ""
                 }`}
               >
-                <h1 className="font-sans text-sm py-2 px-4 md:px-7">XXL</h1>
+                <h1 className="font-sans text-sm py-2 px-5 md:px-7">XXL</h1>
               </div>
             </div>
             <div className="flex mt-5">

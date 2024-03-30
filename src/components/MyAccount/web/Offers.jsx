@@ -7,10 +7,10 @@ export default function Offers() {
       <h1 className="font-sans  hidden text-xl md:text-md font-semibold md:flex justify-center">
         My offers
       </h1>
-      <h1 className="font-sans md:hidden block  text-xl md:text-md font-semibold ">
+      <h1 className="font-sans md:hidden block px-2 md:text-md font-semibold ">
        MY OFFERS
       </h1>
-      <div className="wapperDiv  md:container md:h-56  h-[300px] md:max-w-screen-md mx-auto md:mt-8 mt-3 ">
+      <div className="wapperDiv  md:ml-14 md:h-56  h-[300px]  md:mt-8 mt-3 ">
         <div className="bg-white itemDiv min-w-40 h-52 w-40">
           <img
             className="w-40 h-28 object-cover object-left-top"

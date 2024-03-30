@@ -1,6 +1,6 @@
 import React from "react";
 import Account from "../../../components/MyAccount/web/Account";
-import Navbar from "../../../layout/Navbar/Navbar";
+import Navbar from "../../../layout/Navbar/SubNavbar";
 import CategoriesHeader from "../../../layout/Header/CategoriesHeader";
 import Footer from "../../../layout/Footer/Footer";
 import EditSettings from "../../../components/MyAccount/web/EditSetting";
@@ -9,7 +9,7 @@ export default function SettingEditPage() {
   return (
     <div className="bg-custom ">
       <Navbar />
-      <CategoriesHeader />
+      {/* <CategoriesHeader /> */}
 
       <div className=" md:block hidden">
         <div className="flex justify-center mt-6 ">

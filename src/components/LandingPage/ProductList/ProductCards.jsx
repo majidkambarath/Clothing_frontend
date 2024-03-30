@@ -165,16 +165,18 @@ export default function ProductCards() {
     },
   ];
   return (
-    <div className=" pt-10 bg-custom  w-full md:w-full h-full  ">
-      <div className="flex justify-between">
-        <h1 className="font-roboto md:font-bold text-xs pb-2  ml-6">
+    <div className=" pt-10 bg-custom   w-full md:w-full h-full  ">
+      <div className="flex justify-between md:px-3 md:ml-0 px-1 ml-1">
+        <h1 className="font-roboto md:font-bold  text-[10px]">
           MORE FROM BLNZED
         </h1>
-        <button className="bg-white text-[10px] font-roboto mr-3  h-6 w-28">
-          DISCOVER MORE
-        </button>
+        <Link to={"/product/new-in"}>
+          <button className="bg-white md:-mr-2 md:pl-1 pl-2  mr-1 text-[10px] font-roboto   h-6 w-24 md:h-6 md:w-28">
+            SHOP ALL
+          </button>
+        </Link>
       </div>
-      <div className="grid px-2 bg-custom grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-2 md:gap-1 mt-4  ml-1">
+      <div className="grid md:px-1 px-1 md:mr-0 mr-1  bg-custom grid-flow-row-dense md:grid-cols-4 grid-cols-2 gap-1 md:gap-1 mt-4  ml-1">
         {productData.slice(0, 8).map((item, index) => {
           return (
             <Link key={item.id} to={`/details/${item.id}`}>
@@ -184,10 +186,10 @@ export default function ProductCards() {
                   src={item.imageUrl[0]}
                   alt="productCardImage"
                 />
-                <h1 className="text-xs font-sans mt-2 md:font-bold">
+                <h1 className="text-[9px] font-sans mt-2 md:font-bold">
                   DUTCH BLU GARLAND T-SHIRT
                 </h1>
-                <h1 className="text-xs font-sans text-gray-500  font-bold">
+                <h1 className="text-[9px] font-sans text-gray-500  font-bold">
                   RS. {item.price}
                 </h1>
               </div>
@@ -197,7 +199,7 @@ export default function ProductCards() {
       </div>
 
       <div className="flex bg-custom justify-center h-[100px]">
-        <button className="text-xs font-roboto h-7 w-36 border t  border-black/65 mt-5 hover:bg-black hover:text-white hover:rounded-2xl ">
+        <button className="text-[9px] font-roboto h-7 w-32 md:w-36 border t  border-black/65 mt-5 hover:bg-black hover:text-white hover:rounded-2xl ">
           DISCOVER MORE
         </button>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Account from "../../../components/MyAccount/web/Account";
-import Navbar from "../../../layout/Navbar/Navbar";
+import Navbar from "../../../layout/Navbar/SubNavbar";
 import CategoriesHeader from "../../../layout/Header/CategoriesHeader";
 import Footer from "../../../layout/Footer/Footer";
 import PurchasesHead from "../../../components/MyAccount/web/PurchasesHead";
@@ -10,9 +10,9 @@ export default function PurchasePage() {
   return (
     <div className="bg-custom ">
       <Navbar />
-      <CategoriesHeader />
-      <div className=" md:block hidden">
-        <div className="flex justify-center mt-6 ">
+      {/* <CategoriesHeader /> */}
+      <div className=" md:block hidden pt-24">
+        <div className="flex justify-center  ">
           <Link to={"/"}>
             <h1 className="font-roboto text-xs opacity-60 cursor-pointer hover:text-red-500 hover:opacity-100">
               HOME
@@ -30,13 +30,13 @@ export default function PurchasePage() {
           </h1>
         </div>
       </div>
-      <div className=" md:block hidden">
-        <div className="flex container md:mt-5 md:max-w-screen-2xl mx-auto px-6 sm1:px-11 sm2:px-9 sm:px-9">
+      <div className=" md:block hidden ">
+        <div className="flex pt-16 px-3">
           <Account />
           <PurchasesHead />
         </div>
       </div>
-      <div className="block md:hidden  container md:mt-5 md:max-w-screen-2xl mx-auto px-5 sm1:px-11 sm2:px-9 sm:px-9">
+      <div className="block md:hidden px-2 ">
         <PurchaseApp />
       </div>
 

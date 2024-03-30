@@ -1,6 +1,6 @@
 import React from "react";
 import Account from "../../../components/MyAccount/web/Account";
-import Navbar from "../../../layout/Navbar/Navbar";
+import Navbar from "../../../layout/Navbar/SubNavbar";
 import CategoriesHeader from "../../../layout/Header/CategoriesHeader";
 import Footer from "../../../layout/Footer/Footer";
 import Settings from "../../../components/MyAccount/web/Settings";
@@ -9,10 +9,10 @@ export default function SettingPage() {
   return (
     <div className="bg-custom ">
       <Navbar />
-      <CategoriesHeader />
+      {/* <CategoriesHeader /> */}
 
-      <div className=" md:block hidden">
-        <div className="flex justify-center mt-6 ">
+      <div className=" md:block hidden ">
+        <div className="flex justify-center  pt-24 ">
           <Link to={"/"}>
             <h1 className="font-roboto text-xs opacity-60 cursor-pointer hover:text-red-500 hover:opacity-100">
               HOME
@@ -29,7 +29,7 @@ export default function SettingPage() {
             SETTINGS
           </h1>
         </div>
-        <div className="flex container md:mt-5 md:max-w-screen-2xl mx-auto px-6 sm1:px-11 sm2:px-9 sm:px-9">
+        <div className="flex pt-10 px-3">
           <Account />
           <Settings />
         </div>

@@ -19,7 +19,7 @@ export default function Settings() {
   console.log(primaryAddress);
   return (
     <>
-      <div className="h-full  py-20 md:py-0 w-full md:mt-10 ">
+      <div className="h-full  py-20 md:py-0  w-full  ">
         <Breadcrumbs className="bg-transparent ml-[70px] md:hidden flex  ">
           <Link to={"/"}>
             <svg

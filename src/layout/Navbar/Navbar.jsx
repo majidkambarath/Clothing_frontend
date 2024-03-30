@@ -116,17 +116,19 @@ export default function Navbar() {
             >
               <FiMenu />
             </h1>
-            <h1 className="cursor-pointer ml-4 py-1 text-white/80  text-2xl mt-3">
+            <h1 className="cursor-pointer ml-3 py-1 text-white/80  text-2xl mt-3">
                 <FiSearch />
               </h1>
             </div>
             
             <NavLink to={"/"}>
+            <div className="mr-2">
               <img
-                className="w-32 mt-3 h-9 mr-2  cursor-pointer  "
+                className="w-full  mt-3 h-10  cursor-pointer  "
                 src={logo}
                 alt="LogoPNG"
               />
+              </div>
             </NavLink>
              <div>
              <div className="flex mr-4 py-">

@@ -18,7 +18,7 @@ export default function LandingPage() {
 
       <Banner />
 
-      <div className=" absolute z-20 top-[680px]  md:top-[650px]">
+      <div className=" absolute z-20 top-[600px]  md:top-[650px]">
        
         <ProductList />
       

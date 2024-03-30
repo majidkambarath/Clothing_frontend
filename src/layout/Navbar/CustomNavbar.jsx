@@ -19,7 +19,8 @@ import image4 from "../../assets/cat4.webp";
 import image5 from "../../assets/cat5.webp";
 import image7 from "../../assets/cat6.webp";
 import image6 from "../../assets/bln4.jpg";
-export default function SubNavbar() {
+import CategoriesHeader from "../Header/CategoriesHeader";
+export default function CustomNavbar() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(true);
   const [hide, setHide] = useState(true);
@@ -48,9 +49,9 @@ export default function SubNavbar() {
     };
   }, []);
   return (
-    <>
+    <div className="bg-custom">
       {active ? (
-        <div className="bg-transparent fixed z-30 w-full h-16 flex justify-between ">
+        <div className="bg-custom fixed z-30 w-full h-32 flex justify-between ">
           <div className="ml-7 mt-7">
             <ul className="flex gap-4 ">
               <Link to={'/product/best-sellers'}>
@@ -105,11 +106,11 @@ export default function SubNavbar() {
               </h1>
             </div>
           </div>
-          
+          <CategoriesHeader/>
         </div>
       ) : (
         <>
-          <div className="bg-transparent fixed z-30  w-full h-16 flex justify-between ">
+          <div className="bg-custom fixed z-30  w-full h-16 flex justify-between ">
             <div className="flex ">
             <h1
               onClick={() => setHide(!hide)}
@@ -157,6 +158,7 @@ export default function SubNavbar() {
               </div> */}
              
             {/* </div> */}
+            <CategoriesHeader/>
           </div>
           {!hide && (
             <div className="bg-custom h-full w-[330px] fixed z-40  ">
@@ -266,7 +268,8 @@ export default function SubNavbar() {
           )}
         </>
       )}
-    </>
+    
+    </div>
   );
 }
 
