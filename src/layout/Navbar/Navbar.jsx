@@ -123,7 +123,7 @@ export default function Navbar() {
             <NavLink to={"/"}>
               <div className="mr-2">
                 <img
-                  className="w-full mt-3 h-10  cursor-pointer  "
+                  className="w-20 mt-3 h-10  cursor-pointer  "
                   src={logo}
                   alt="LogoPNG"
                 />
