@@ -1,5 +1,19 @@
 import React, { useEffect, useState } from "react";
+import {
+  Avatar,
+  Typography,
+  IconButton,
+  Drawer,
+  Button,
+} from "@material-tailwind/react";
+import "./Navbar.css";
 import logo from "../../assets/logo3.png";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+} from "../../store/reducer/CartStore";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
@@ -8,22 +22,57 @@ import { GrFavorite } from "react-icons/gr";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Search from "./Search";
+
 import { Link, NavLink } from "react-router-dom";
-import { Avatar, Typography } from "@material-tailwind/react";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { GoPlus } from "react-icons/go";
+import { LuMinus } from "react-icons/lu";
 import { HiOutlineArrowRight } from "react-icons/hi2";
 import image1 from "../../assets/cat1.webp";
 import image2 from "../../assets/cat2.webp";
 import image3 from "../../assets/cat3.webp";
 import image4 from "../../assets/cat4.webp";
 import image5 from "../../assets/cat5.webp";
+import bln from "../../assets/bln2.jpg";
 import image7 from "../../assets/cat6.webp";
 import image6 from "../../assets/bln4.jpg";
+
 export default function Navbar() {
+  const cartData = useSelector((state) => state.cart.carts);
+  // console.log(cartData);
+  const dispatch = useDispatch();
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(true);
   const [hide, setHide] = useState(true);
   const [show, setShow] = useState(false);
+  const [total, setTotal] = useState(0);
+  console.log(total);
+  const [openRight, setOpenRight] = useState(false);
+  const openDrawerRight = () => setOpenRight(!openRight);
+  const closeDrawerRight = () => setOpenRight(!openRight);
+
+  const totatamount = cartData.reduce(
+    (total, product) => total + product.item.price * product.quantity,
+    0
+  );
+  console.log(totatamount);
+  const handleIncrement = (ID) => {
+    dispatch(incrementQuantity({ id: ID }));
+  };
+
+  const handleDecrement = (ID) => {
+    dispatch(decrementQuantity({ id: ID }));
+  };
+  const handleRomove = (ID) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete?");
+
+    if (confirmDelete) {
+      dispatch(removeItem({ id: ID }));
+    } else {
+      navigte("/");
+    }
+  };
   useEffect(() => {
     const checkWindowWidth = () => {
       const windowWidth = window.innerWidth;
@@ -47,6 +96,7 @@ export default function Navbar() {
       window.removeEventListener("resize", checkWindowWidth);
     };
   }, []);
+
   return (
     <>
       {active ? (
@@ -54,17 +104,17 @@ export default function Navbar() {
           <div className="ml-7 mt-7">
             <ul className="flex gap-4 ">
               <Link to={"/product/best-sellers"}>
-                <li className="font-roboto text-[11px] cursor-pointer ">
+                <li className="font-roboto text-[10px] cursor-pointer ">
                   BEST SELLERS
                 </li>
               </Link>
               <Link to={"/product/new-in"}>
-                <li className="font-roboto text-[11px] cursor-pointer">
+                <li className="font-roboto text-[10px] cursor-pointer">
                   NEW ARRIVALS
                 </li>
               </Link>
               <Link to={"product/new-offers"}>
-                <li className="font-roboto text-[11px] cursor-pointer">
+                <li className="font-roboto text-[10px] cursor-pointer">
                   NEW OFFERS
                 </li>
               </Link>
@@ -82,7 +132,7 @@ export default function Navbar() {
                 </h1>
               </NavLink>
               <NavLink to={"/login"}>
-                <h1 className="cursor-pointer font-roboto text-xs pt-5 pl-2">
+                <h1 className="cursor-pointer font-roboto text-[10px] pt-5 pl-2">
                   Sign in
                 </h1>
               </NavLink>
@@ -99,9 +149,145 @@ export default function Navbar() {
               <h1 className="cursor-pointer py-1 text-gray-700  text-2xl mt-3">
                 <HiOutlineShoppingBag />
               </h1>
-              <h1 className="cursor-pointer font-roboto text-xs pt-5 pl-2">
-                Shopping bag (0)
+              <h1
+                onClick={openDrawerRight}
+                className="cursor-pointer font-roboto text-[10px] pt-5 pl-2"
+              >
+                Shopping bag ({cartData.length})
               </h1>
+              <div>
+                <Drawer
+                  placement="right"
+                  open={openRight}
+                  onClose={closeDrawerRight}
+                  className="p-4 bg-custom "
+                  size={410}
+                >
+                  <div className="mb-6 w-full flex items-center justify-between">
+                    <Typography
+                      className="font-roboto text-[10px] font-bold"
+                      color="blue-gray"
+                    >
+                      YOUR CART
+                    </Typography>
+                    <IconButton
+                      variant="text"
+                      color="blue-gray"
+                      onClick={closeDrawerRight}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="h-5 w-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </IconButton>
+                  </div>
+                  {cartData.length > 0 ? (
+                    <div>
+                      <div className="w-full relative warapper flex-col  mt-10 h-[360px]">
+                        {cartData.map((data, index) => {
+                          return (
+                            <div key={index} className="flex mt-3 ">
+                              <div className="flex ">
+                                <img
+                                  className="w-32 h-32 object-cover"
+                                  src={data.item.imageUrl[0]}
+                                  alt="ProductImage"
+                                />
+                                <div className="ml-4 mt-3">
+                                  <h1 className="font-roboto text-[9px] font-bold">
+                                    {data.item.title}
+                                  </h1>
+                                  <h1 className="font-roboto font-bold text-[9px] mt-1">
+                                    RS. {data.item.price}
+                                  </h1>
+                                  <h1 className="font-roboto text-[9px] font-bold mt-1">
+                                    SIZE: {data.size}
+                                  </h1>
+                                  <div className="h-12 w-32 mt-3 border border-black/35  rounded-lg">
+                                    <div className="flex justify-evenly py-4">
+                                      <button
+                                        onClick={() =>
+                                          handleDecrement(data.item.id)
+                                        }
+                                        className="cursor-pointer"
+                                      >
+                                        <LuMinus />
+                                      </button>
+                                      <h1 className="font-roboto text-xl font-bold -mt-2">
+                                        {data.quantity}
+                                      </h1>
+                                      <button
+                                        onClick={() =>
+                                          handleIncrement(data.item.id)
+                                        }
+                                        className="cursor-pointer"
+                                      >
+                                        <GoPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="ml-16 mt-2 ">
+                                <h1
+                                  onClick={() => handleRomove(data.item.id)}
+                                  className="font-roboto cursor-pointer text-md"
+                                >
+                                  <RiDeleteBin6Line />
+                                </h1>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="mt-16 bg-custom fixed z-40 top-[410px]">
+                        <div className="h-[1px]  w-full bg-black/30"></div>
+                        <div className="mt-5 flex justify-between">
+                          <h1 className="font-roboto text-[11px] font-bold">
+                            ESTIMATED TOTAL
+                          </h1>
+                          <h1 className="font-roboto text-[11px] ">
+                            RS. {totatamount}
+                          </h1>
+                        </div>
+                        <h1 className="font-roboto text-[11px] mt-3 font-bold">
+                          TAX INCLUDED. SHIPPING AND DISCOUNTS CALCULATED AT
+                          CHECKOUT.
+                        </h1>
+                        <NavLink to={"/check-out"}>
+                          <button className="h-12 text-[11px] w-full mt-5 bg-black text-white">
+                            CHECK OUT
+                          </button>
+                        </NavLink>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="w-full h-full  py-5">
+                      <div className="flex bg-white h-[90px] py-8 w-full justify-center ">
+                        <h1 className="font-roboto text-[13px] font-bold ">
+                          Empty cart, endless possibilities. Let's start
+                          exploring!
+                        </h1>
+                      </div>
+                      <NavLink to={"/product/new-in"}>
+                        <button className="hover:bg-black/45 border border-black/35 mt-5 text-[10px] w-full h-14 text-black hover:text-white">
+                          SHOP NOW
+                        </button>
+                      </NavLink>
+                    </div>
+                  )}
+                </Drawer>
+              </div>
             </div>
           </div>
         </div>
@@ -131,10 +317,148 @@ export default function Navbar() {
             </NavLink>
             <div>
               <div className="flex mr-4 py-">
-                <h1 className="cursor-pointer py-1 text-white/80 text-2xl mt-3">
+                <h1
+                  onClick={openDrawerRight}
+                  className="cursor-pointer py-1 text-white/80 text-2xl mt-3"
+                >
                   <HiOutlineShoppingBag />
                 </h1>
-                <h1 className="font-roboto py-1 text-white/80 font-bold ">1</h1>
+                <h1 className="font-roboto py-1 text-white/80 font-bold ">
+                  {cartData.length}
+                </h1>
+              </div>
+              <div>
+                <Drawer
+                  placement="right"
+                  open={openRight}
+                  onClose={closeDrawerRight}
+                  className="p-4 bg-custom "
+                  size={410}
+                >
+                  <div className="mb-6 w-full flex items-center justify-between">
+                    <Typography
+                      className="font-roboto text-[10px] font-bold"
+                      color="blue-gray"
+                    >
+                      YOUR CART
+                    </Typography>
+                    <IconButton
+                      variant="text"
+                      color="blue-gray"
+                      onClick={closeDrawerRight}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="h-5 w-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </IconButton>
+                  </div>
+                  {cartData.length > 0 ? (
+                    <div>
+                      <div className="w-full relative warapper flex-col  mt-10 h-[360px]">
+                        {cartData.map((data, index) => {
+                          return (
+                            <div key={index} className="flex mt-3 ">
+                              <div className="flex ">
+                                <img
+                                  className="w-32 h-32 object-cover"
+                                  src={data.item.imageUrl[0]}
+                                  alt="ProductImage"
+                                />
+                                <div className="ml-4 mt-3">
+                                  <h1 className="font-roboto text-[9px] font-bold">
+                                    {data.item.title}
+                                  </h1>
+                                  <h1 className="font-roboto font-bold text-[9px] mt-1">
+                                    RS. {data.item.price}
+                                  </h1>
+                                  <h1 className="font-roboto text-[9px] font-bold mt-1">
+                                    SIZE: {data.size}
+                                  </h1>
+                                  <div className="h-12 w-32 mt-3 border border-black/35  rounded-lg">
+                                    <div className="flex justify-evenly py-4">
+                                      <button
+                                        onClick={() =>
+                                          handleDecrement(data.item.id)
+                                        }
+                                        className="cursor-pointer"
+                                      >
+                                        <LuMinus />
+                                      </button>
+                                      <h1 className="font-roboto text-xl font-bold -mt-2">
+                                        {data.quantity}
+                                      </h1>
+                                      <button
+                                        onClick={() =>
+                                          handleIncrement(data.item.id)
+                                        }
+                                        className="cursor-pointer"
+                                      >
+                                        <GoPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="ml-16 mt-2 ">
+                                <h1
+                                  onClick={() => handleRomove(data.item.id)}
+                                  className="font-roboto cursor-pointer text-md"
+                                >
+                                  <RiDeleteBin6Line />
+                                </h1>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="mt-16 bg-custom fixed z-40 md:top-[410px] top-[460px]">
+                        <div className="h-[1px]  w-full bg-black/30"></div>
+                        <div className="mt-5 flex justify-between">
+                          <h1 className="font-roboto text-[11px] md:font-bold">
+                            ESTIMATED TOTAL
+                          </h1>
+                          <h1 className="font-roboto text-[11px] ">
+                            RS. {totatamount}
+                          </h1>
+                        </div>
+                        <h1 className="font-roboto text-[11px] mt-3 font-bold">
+                          TAX INCLUDED. SHIPPING AND DISCOUNTS CALCULATED AT
+                          CHECKOUT.
+                        </h1>
+                        <NavLink to={"/check-out"}>
+                          <button className="h-12 text-[11px] w-full mt-5 bg-black text-white">
+                            CHECK OUT
+                          </button>
+                        </NavLink>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="w-full h-full  py-5">
+                      <div className="flex bg-white h-[90px] py-8 w-full justify-center ">
+                        <h1 className="font-roboto text-[13px] font-bold ">
+                          Empty cart, endless possibilities. Let's start
+                          exploring!
+                        </h1>
+                      </div>
+                      <NavLink to={"/product/new-in"}>
+                        <button className="hover:bg-black/45 border border-black/35 mt-5 text-[10px] w-full h-14 text-black hover:text-white">
+                          SHOP NOW
+                        </button>
+                      </NavLink>
+                    </div>
+                  )}
+                </Drawer>
               </div>
             </div>
             {/* <div className="flex gap-5 pl-16"> */}

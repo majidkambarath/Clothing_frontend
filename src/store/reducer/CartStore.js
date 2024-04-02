@@ -23,6 +23,7 @@ const cartSlice = createSlice({
     },
     incrementQuantity: (state, action) => {
       const { id } = action.payload;
+      console.log(id)
       const existingItemIndex = state.carts.findIndex(
         (cartItem) => cartItem?.id === id
       );

@@ -10,6 +10,7 @@ import SettingEdit from "../../pages/User/MyAccount/SettingEdit";
 import AddressEdit from "../../pages/User/MyAccount/AddressEdit";
 import ProductPage from "../../pages/User/ProductPage";
 import ProductDetailsPage from "../../pages/User/ProductDetailsPage";
+// import CartPage from "../../pages/User/CartPage";
 
 export default function UserRouter() {
   return (
@@ -24,6 +25,7 @@ export default function UserRouter() {
       <Route path="/account/addressbook" element={<AddressEdit />} />
       <Route path="/product/:item" element={<ProductPage />} />
       <Route path="/details/:id" element={<ProductDetailsPage />} />
+      {/* <Route path="/cart" element={<CartPage />} /> */}
     </Routes>
   );
 }

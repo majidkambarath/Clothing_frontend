@@ -26,9 +26,20 @@ export default function ProductDetails() {
   const cartData = useSelector((state) => state.cart.carts);
   console.log(cartData);
   const divRef = useRef(null);
+  const divRef1 = useRef(null);
+  const { id } = useParams();
+  const ID = +id;
+  
   useEffect(() => {
+    console.log("first")
     divRef.current?.focus();
+    divRef1.current?.focus();
   }, []);
+  useEffect(() => {
+    const filter = productData.filter((ele) => ele.id === ID);
+    setProductDetails(filter.length > 0 ? filter[0] : {});
+  }, [id]);
+
   const productData = [
     {
       id: 1,
@@ -184,6 +195,7 @@ export default function ProductDetails() {
       price: 7999,
     },
   ];
+  
 
   const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState("");
@@ -191,13 +203,8 @@ export default function ProductDetails() {
   const openDrawerRight = () => setOpenRight(true);
   const closeDrawerRight = () => setOpenRight(false);
 
-  const { id } = useParams();
-  const ID = +id;
+
   const [productDetails, setProductDetails] = useState({});
-  useEffect(() => {
-    const filter = productData.filter((ele) => ele.id === ID);
-    setProductDetails(filter.length > 0 ? filter[0] : {});
-  }, [id]);
   const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
@@ -218,7 +225,7 @@ export default function ProductDetails() {
         // tabIndex={0}
         className=" h-full outline-none w-full py-20 md:py-10  md:flex"
       >
-        <div className="warapper md:hidden  gap-2">
+        <div   className="warapper md:hidden  gap-2">
           {productDetails.imageUrl?.map((item, index) => {
             return (
               <img
@@ -246,7 +253,7 @@ export default function ProductDetails() {
           className="w-full 
          h-[550px]"
         >
-          <div className="md:ml-10 py-10">
+          <div  className="md:ml-10 py-10">
             <h1 className="font-roboto font-semibold md:text-[20px] text-[11px]">
               {productDetails.title}
             </h1>
@@ -350,6 +357,12 @@ export default function ProductDetails() {
                         </tr>
                       </tbody>
                     </table>
+
+                    <div>
+                      <h1 onClick={()=>{
+                        console.log("first")
+                      }} >0</h1>
+                    </div>
                   </div>
                 </Drawer>
               </div>
@@ -438,9 +451,9 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-      <div className="md:pb-16 pb-10 -mt-32 md:-mt-0">
+      {/* <div className="md:pb-16 pb-10 -mt-32 md:-mt-0">
         <RecentView />
-      </div>
+      </div> */}
 
       <Footer />
     </>

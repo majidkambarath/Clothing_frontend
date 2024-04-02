@@ -180,7 +180,7 @@ export default function ProductCards() {
         {productData.slice(0, 8).map((item, index) => {
           return (
             <Link key={item.id} to={`/details/${item.id}`}>
-              <div key={index} className="md:h-[435px] cursor-pointer">
+              <div key={index} className="md:h-[435px] mt-2  cursor-pointer">
                 <img
                   className="md:w-[333px] w-[400px] object-cover  md:h-[380px] "
                   src={item.imageUrl[0]}
